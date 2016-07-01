@@ -47,7 +47,7 @@ function Monstruo (){  //Objeto
   this.x=0;
   this.y=0;
   this.pelos=0;  // Los pelos dependen del radio
-  console.log(this.pelos);
+  
   //Métodos
   this.draw=function(){
     this.pelos=100*this.radio;
@@ -55,8 +55,14 @@ function Monstruo (){  //Objeto
 
     
     for (var i = 0;i < this.pelos ; i++) {
-      var x=random(this.x-,this.x+this.radio);
-      var y=random(this.y-this.radio,this.y+this.radio);
+      //var x=random(this.x-,this.x+this.radio);
+      //var y=random(this.y-this.radio,this.y+this.radio);
+      var alpha=random(0,TWO_PI);
+      var radio=random(0,this.radio);
+
+      var x=this.x+(radio*sin(alpha));
+      var y=this.y+(radio*cos(alpha));
+
       point(x,y);
     }
 
