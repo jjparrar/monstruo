@@ -22,7 +22,7 @@ function setup (){
     
    cuerpo.x=width/2;
    cuerpo.y=height/2;
-   cuerpo.radio=100;
+   cuerpo.radio=200;
    cuerpo.setup();
    
 };
@@ -49,7 +49,8 @@ function Monstruo (){  //Objeto
   this.y=0;
   this.n_pelos=0;  // Los pelos dependen del radio
   this.pelos= new Array();
-  
+  this.viento=5;
+
   //Métodos
   this.setup=function(){
 
@@ -59,7 +60,7 @@ function Monstruo (){  //Objeto
       //var x=random(this.x-,this.x+this.radio);
       //var y=random(this.y-this.radio,this.y+this.radio);
       var alpha=random(0,TWO_PI);
-      var radio=random(10,this.radio);
+      var radio=random(this.radio*0.05,this.radio);
 
       var x=this.x+(radio*sin(alpha));
       var y=this.y+(radio*cos(alpha));
@@ -79,7 +80,7 @@ function Monstruo (){  //Objeto
 
     for (var i = 0;i < this.n_pelos ; i++) {
 
-      bezier(this.pelos[i].x,this.pelos[i].y,this.pelos[i].x-10,this.pelos[i].y-10, this.pelos[i].x-20,this.pelos[i].y+20,this.pelos[i].x-20,this.pelos[i].y+20);
+      bezier(this.pelos[i].x,this.pelos[i].y,this.pelos[i].x-10,this.pelos[i].y-10, this.pelos[i].x-20+random(0,this.viento),this.pelos[i].y+20,this.pelos[i].x-20+random(0,this.viento),this.pelos[i].y+30);
 
     }   
     
