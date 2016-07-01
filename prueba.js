@@ -3,6 +3,8 @@ var numero_pelos=10;
 var lineas= new Array();
 var x=50;
 var y=30;
+var cuerpo = new Monstruo(); // variable cuerpo tipo Monstruo
+
 
 function setup (){
 	createCanvas(windowWidth,windowHeight);
@@ -16,22 +18,59 @@ function setup (){
           "x1":x+3,
           "y1":y+3,
         };
-    }
-
-   
-}
+    };
+    
+   cuerpo.x=width/2;
+   cuerpo.y=height/2;
+   cuerpo.radio=100;
+   console.log(cuerpo.area());
+};
 
 function draw() {
   clear();
-     for (var i = 0; i < numero_pelos; i++) {
+
+  ellipse(width/2, height-150, 200,200);
+  cuerpo.draw();
+
+
+/*for (var i = 0; i < numero_pelos; i++) {
       fill(0);
       line(lineas[i].x,lineas[i].y,lineas[i].x1,lineas[i].y1);
       
-    } 
- 
+  } */
+    
+};
+
+function Monstruo (){  //Objeto
+  //Atributos
+  this.radio=0;   
+  this.x=0;
+  this.y=0;
+  this.pelos=0;  // Los pelos dependen del radio
+  console.log(this.pelos);
+  //Métodos
+  this.draw=function(){
+    this.pelos=100*this.radio;
+    ellipse(this.x,this.y,this.radio*2,this.radio*2);
+
+    
+    for (var i = 0;i < this.pelos ; i++) {
+      var x=random(this.x-,this.x+this.radio);
+      var y=random(this.y-this.radio,this.y+this.radio);
+      point(x,y);
+    }
+
+  };
+  //Método para saber el area, se escribe en la consola que está en el setup
+  this.area=function(){
+      return 2*PI*this.radio;
+  };
+
+};
 
 
-}
+
+
 
 /*
 function draw(){
