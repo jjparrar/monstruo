@@ -23,7 +23,8 @@ function setup (){
    cuerpo.x=width/2;
    cuerpo.y=height/2;
    cuerpo.radio=100;
-   console.log(cuerpo.area());
+   cuerpo.setup();
+   
 };
 
 function draw() {
@@ -46,25 +47,42 @@ function Monstruo (){  //Objeto
   this.radio=0;   
   this.x=0;
   this.y=0;
-  this.pelos=0;  // Los pelos dependen del radio
+  this.n_pelos=0;  // Los pelos dependen del radio
+  this.pelos= new Array();
   
   //Métodos
-  this.draw=function(){
-    this.pelos=100*this.radio;
-    ellipse(this.x,this.y,this.radio*2,this.radio*2);
+  this.setup=function(){
 
-    
-    for (var i = 0;i < this.pelos ; i++) {
+    this.n_pelos=30*this.radio;
+
+    for (var i = 0;i < this.n_pelos ; i++) {
       //var x=random(this.x-,this.x+this.radio);
       //var y=random(this.y-this.radio,this.y+this.radio);
       var alpha=random(0,TWO_PI);
-      var radio=random(0,this.radio);
+      var radio=random(10,this.radio);
 
       var x=this.x+(radio*sin(alpha));
       var y=this.y+(radio*cos(alpha));
 
-      point(x,y);
-    }
+      this.pelos.push({
+        "x": x,
+        "y": y
+      });
+    };
+  };
+  
+  
+  this.draw=function(){
+    
+    ellipse(this.x,this.y,this.radio*2,this.radio*2);
+    noFill();
+
+    for (var i = 0;i < this.n_pelos ; i++) {
+
+      bezier(this.pelos[i].x,this.pelos[i].y,this.pelos[i].x-10,this.pelos[i].y-10, this.pelos[i].x-20,this.pelos[i].y+20,this.pelos[i].x-20,this.pelos[i].y+20);
+
+    }   
+    
 
   };
   //Método para saber el area, se escribe en la consola que está en el setup
