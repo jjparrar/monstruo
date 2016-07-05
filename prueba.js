@@ -4,13 +4,14 @@ var lineas= new Array();
 var x=50;
 var y=30;
 var cuerpo = new Monstruo(); // variable cuerpo tipo Monstruo
+var circulos = new Nieve();
 
 
 function setup (){
 	createCanvas(windowWidth,windowHeight);
-  background(255);
+  //background(255);
 
-    for (var i = 0; i <= numero_pelos; i++) {
+    /*for (var i = 0; i <= numero_pelos; i++) {
 
         lineas[i] = {
           "x":x,       //estoy asignando propiedades a un objeto, sabemos que es un objeto porque esta en llaves
@@ -18,7 +19,7 @@ function setup (){
           "x1":x+3,
           "y1":y+3,
         };
-    };
+    };*/
     
    cuerpo.x=width/2;
    cuerpo.y=height/2;
@@ -30,7 +31,7 @@ function setup (){
 function draw() {
   clear();
 
-  ellipse(width/2, height-150, 200,200);
+
   cuerpo.draw();
 
 
@@ -86,10 +87,79 @@ function Monstruo (){  //Objeto
     
 
   };
-  //Método para saber el area, se escribe en la consola que está en el setup
+  //Método para saber el area
   this.area=function(){
       return 2*PI*this.radio;
   };
+
+};
+
+
+function Nieve(){
+  //Atributos
+  this.d=0;
+  this.nievex=0;
+  this.nievey=0;
+  this.velocidadx=0;
+  this.velocidady=0;
+  this.color=0;
+  this.circulos=0;
+  //Metodos
+
+
+  this.setup=function(){
+
+    this.circulos=1;
+
+    for(var i = 0; i < this.circulos; i++){
+
+      var nievex=random(0,width);      
+      var nievey=random(0,height);
+      var d=random(10,40);
+      var valocidadx=random(5,20);
+      var velocidady=random(20,30);
+      var color=[random(240,255),random(240,255),random(240,255),random(0,1)]; 
+
+
+  };
+
+  this.draw=function(){
+
+    noStroke();
+
+    for (var i = 0; i < this.circulos.length; i++) {
+      
+      fill(circulos[i].color[0], circulos[i].color[1],circulos[i].color[2]);
+      ellipse(circulos[i].x,circulos[i].y,circulos[i].d,circulos[i].d);
+      
+
+      circulos[i].x += circulos[i].speedX;
+      circulos[i].y += circulos[i].speedY;
+
+
+
+      if (circulos[i].x > width) {
+
+        circulos[i].x=0;
+      };
+      if (circulos[i].y > height) {
+
+        circulos[i].y=0;
+      };
+
+      if (circulos[i].x < 0) {
+
+        circulos[i].x=width;
+      };
+      if (circulos[i].y < 0) {
+
+        circulos[i].y=height;
+      };
+
+      
+    };
+  };
+
 
 };
 
