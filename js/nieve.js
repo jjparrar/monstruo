@@ -33,7 +33,7 @@ function Copo(){
     }else if(this.x<0){
       this.x=width;
     }else{
-      this.x+=viento;
+      this.x+=(viento*this.radio);
     }
   };
 };

@@ -38,8 +38,8 @@ function draw() {
 
 
 function mouseMoved() {
-  var razonViento=100;
-  nieve.viento=-((width/2)-mouseX)/100;
+  var razonViento=150;
+  nieve.viento=-((width/2)-mouseX)/razonViento;
 }
 
 
