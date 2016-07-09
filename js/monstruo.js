@@ -1,48 +1,3 @@
-var d= 250;
-var numero_pelos=10;
-var lineas= new Array();
-var x=50;
-var y=30;
-var cuerpo = new Monstruo(); // variable cuerpo tipo Monstruo
-var nieve = new Nieve();
-
-
-function setup (){
-	createCanvas(windowWidth,windowHeight);
-    
-  cuerpo.x=width/2;
-  cuerpo.y=height/2;
-  cuerpo.radio=200;
-  cuerpo.setup();
-
-  nieve.setup();
-   
-};
-
-function draw() {
-  clear();
-
-
-  cuerpo.draw();
-
-  nieve.draw();
-
-
-/*for (var i = 0; i < numero_pelos; i++) {
-      fill(0);
-      line(lineas[i].x,lineas[i].y,lineas[i].x1,lineas[i].y1);
-      
-  } */
-    
-};
-
-
-function mouseMoved() {
-  var razonViento=150;
-  nieve.viento=-((width/2)-mouseX)/razonViento;
-}
-
-
 function Monstruo (){  //Objeto
   //Atributos
   this.radio=0;   
@@ -81,7 +36,7 @@ function Monstruo (){  //Objeto
 
     for (var i = 0;i < this.n_pelos ; i++) {
       stroke(0,0,0);
-      //bezier(this.pelos[i].x,this.pelos[i].y,this.pelos[i].x-10,this.pelos[i].y-10, this.pelos[i].x-20+random(0,this.viento),this.pelos[i].y+20,this.pelos[i].x-20+random(0,this.viento),this.pelos[i].y+30);
+      bezier(this.pelos[i].x,this.pelos[i].y,this.pelos[i].x-10,this.pelos[i].y-10, this.pelos[i].x-20+random(0,this.viento),this.pelos[i].y+20,this.pelos[i].x-20+random(0,this.viento),this.pelos[i].y+30);
 
     }   
     
