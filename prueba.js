@@ -106,12 +106,12 @@ function Nieve(){
   this.circulos=0;
   //Metodos
 
-
+ 
   this.setup=function(){
 
-    this.circulos=1;
+    this.circulos=4;
 
-    for(var i = 0; i < this.circulos; i++){
+    for(var i = 0; i < this.circulos.length; i++){
 
       var nievex=random(0,width);      
       var nievey=random(0,height);
@@ -119,50 +119,51 @@ function Nieve(){
       var valocidadx=random(5,20);
       var velocidady=random(20,30);
       var color=[random(240,255),random(240,255),random(240,255),random(0,1)]; 
+   
+    }
+    
+  }
 
 
-  };
+ this.draw=function(){
 
-  this.draw=function(){
-
-    noStroke();
+    //noStroke();
+    console.log(this.circulos.length);
 
     for (var i = 0; i < this.circulos.length; i++) {
       
-      fill(circulos[i].color[0], circulos[i].color[1],circulos[i].color[2]);
-      ellipse(circulos[i].x,circulos[i].y,circulos[i].d,circulos[i].d);
+      fill(this.color[0], this.color[1],this.color[2],this.color[3]);
+      ellipse(this.nievex,this.nievey,this.d,this.d);
       
 
-      circulos[i].x += circulos[i].speedX;
-      circulos[i].y += circulos[i].speedY;
+      this.nievex += this.velocidadx;
+      this.nievex += this.velocidadx;
+      
 
+      /*if (circulos[i].nievex > width) {
 
-
-      if (circulos[i].x > width) {
-
-        circulos[i].x=0;
+        circulos[i].nievex=0;
       };
-      if (circulos[i].y > height) {
+      if (circulos[i].nievey > height) {
 
-        circulos[i].y=0;
+        circulos[i].nievey=0;
       };
 
-      if (circulos[i].x < 0) {
+      if (circulos[i].nievex < 0) {
 
-        circulos[i].x=width;
+        circulos[i].nievex=width;
       };
-      if (circulos[i].y < 0) {
+      if (circulos[i].nievey < 0) {
 
-        circulos[i].y=height;
-      };
+        circulos[i].nievey=height;
+      };*/
 
       
     };
   };
 
 
-};
-
+}
 
 
 
