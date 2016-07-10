@@ -43,7 +43,7 @@ window.onload = function() {
   tracking.track('#video', tracker, { camera: true });
   tracker.on('track', function(event) {
     event.data.forEach(function(rect) {
-      var porcentajeX=((210/2)-(rect.x))/210;
+      var porcentajeX=(((210/2)-(rect.x))/210)*1.8;
       var porcentajeY=-(((130/2)-(rect.y))/130);
       cuerpo.moverPupilas(porcentajeX,porcentajeY);
     });

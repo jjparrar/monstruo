@@ -26,3 +26,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	outline:0;
 	z-index:-1;
 }
+
+#video{
+	margin-left: -5000px;
+	margin-top: -5000px;
+}
