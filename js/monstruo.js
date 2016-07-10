@@ -22,7 +22,7 @@ function Monstruo (){  //Objeto
         "y": y
       });
     };*/
-    this.n_pelos=4*this.radio;
+    this.n_pelos=2*this.radio;
     for (var i = 0;i < this.n_pelos ; i++) {
       var alpha=random(0,TWO_PI);
       //var radio=random(this.radio*0.05,this.radio);
