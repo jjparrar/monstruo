@@ -43,8 +43,6 @@ function Ojo(){
 		ellipse(this.x,this.y,this.radio*2,this.radio*2);
 		fill(0);
 		ellipse(this.pupilaX,this.pupilaY,this.pupila*2,this.pupila*2);
-		
-		
 	};
 
 	this.moverPupila=function(porcentajeX,porcentajeY){
@@ -55,5 +53,4 @@ function Ojo(){
 	this.moverViento=function(viento){
 		this.x=random(this.origX,this.origX+(viento*3));
 	};
-
 };
