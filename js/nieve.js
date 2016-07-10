@@ -11,7 +11,7 @@ function Copo(){
   this.setup=function(){
     this.x=random(0,width);
     this.y=random(0,height);
-    this.radio=int(random(1,20));
+    this.radio=random(1,10);
     this.velocidad=0.5*this.radio;
     this.color=[random(240,255),random(240,255),random(240,255),random(0,1)];
   };

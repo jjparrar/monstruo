@@ -10,9 +10,10 @@ var nieve = new Nieve();
 function setup (){
   createCanvas(windowWidth,windowHeight);
     
-  cuerpo.x=width/2;
-  cuerpo.y=height/2;
+  
   cuerpo.radio=200;
+  cuerpo.x=width/2;
+  cuerpo.y=height-cuerpo.radio;
   cuerpo.setup();
   nieve.setup();
   //ojos.setup();
@@ -32,6 +33,7 @@ function draw() {
 function mouseMoved() {
   var razonViento=150;
   nieve.viento=-((width/2)-mouseX)/razonViento;
+  cuerpo.viento=-((width/2)-mouseX)/razonViento;
 
 
   var porcentajeX=((width/2)-mouseX)/width;
