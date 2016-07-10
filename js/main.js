@@ -32,11 +32,15 @@ function draw() {
 function mouseMoved() {
   var razonViento=150;
   nieve.viento=-((width/2)-mouseX)/razonViento;
+
+
+  var porcentajeX=((width/2)-mouseX)/width;
+  var porcentajeY=((height/2)-mouseY)/height;
+  cuerpo.moverPupilas(porcentajeX,porcentajeY);
 }
 
 
 
-/*function mouseClicked(){
-  ojos.draw();
+function mouseClicked(){
+  cuerpo.ojoNuevo(mouseX,mouseY);
 }
-*/

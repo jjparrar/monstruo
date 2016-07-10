@@ -6,6 +6,7 @@ function Monstruo (){  //Objeto
   this.n_pelos=0;  // Los pelos dependen del radio
   this.pelos= new Array();
   this.viento=5;
+  this.ojos=new Array();
 
   //Métodos
   this.setup=function(){
@@ -36,15 +37,33 @@ function Monstruo (){  //Objeto
 
     for (var i = 0;i < this.n_pelos ; i++) {
       stroke(0,0,0);
-      bezier(this.pelos[i].x,this.pelos[i].y,this.pelos[i].x-10,this.pelos[i].y-10, this.pelos[i].x-20+random(0,this.viento),this.pelos[i].y+20,this.pelos[i].x-20+random(0,this.viento),this.pelos[i].y+30);
+      //bezier(this.pelos[i].x,this.pelos[i].y,this.pelos[i].x-10,this.pelos[i].y-10, this.pelos[i].x-20+random(0,this.viento),this.pelos[i].y+20,this.pelos[i].x-20+random(0,this.viento),this.pelos[i].y+30);
 
     }   
     
+
+    for(var i in this.ojos){
+      this.ojos[i].draw();
+    }
 
   };
   //Método para saber el area
   this.area=function(){
       return 2*PI*this.radio;
+  };
+
+  //Método que crea un ojo en el monstruo
+  this.ojoNuevo=function(x,y){
+    var ojo=new Ojo();
+    ojo.setup(x,y);
+    this.ojos.push(ojo);
+  };
+
+  //Mueve las pupilas de todos los ojos
+  this.moverPupilas=function(porcentajeX,porcentajeY){
+    for(var i in this.ojos){
+      this.ojos[i].moverPupila(porcentajeX,porcentajeY);
+    }
   };
 
 };
